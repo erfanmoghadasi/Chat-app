@@ -1,4 +1,4 @@
-import React, { useState , useEffect, createContext, Children } from 'react';
+import React, { useState , useEffect, createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../firebase';
 
@@ -17,7 +17,7 @@ const AuthContextProvider = ({children}) => {
             setLoading(false);
             if(user) navigate('/chats')
         })
-    })
+    },[user , navigate])
 
     return (
         <AuthContext.Provider value={user}>
