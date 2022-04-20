@@ -9,6 +9,7 @@ import {AuthContext} from '../contexts/AuthContextProvider'
 
 // Components
 import Navbar from './Navbar';
+import Loader from './Loader';
 
 // Styles
 import styles from "./Chats.module.css"
@@ -61,7 +62,7 @@ const Chats = () => {
         navigate('/')
     }
 
-    if(!user || loading) return 'loading...'
+    if(!user || loading) return <Loader />
     return (
         <div className={styles.container}>
             <Navbar logoutHandler={logoutHandler}/>
